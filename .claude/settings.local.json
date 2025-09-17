@@ -5,7 +5,12 @@
       "Bash(ls:*)",
       "Bash(mv:*)",
       "Bash(rmdir:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(npm run docker:up:*)",
+      "Bash(node:*)",
+      "Bash(ollama serve:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }

@@ -1,12 +1,64 @@
-# React + Vite
+# Study Buddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application that helps polytechnic students manage their study materials under tight deadlines. The system uses AI to answer questions, generate quizzes, and track weak points.
 
-Currently, two official plugins are available:
+**Vision: One Inbox → One Brain → One Plan**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Architecture
 
-## Expanding the ESLint configuration
+- **Frontend**: Next.js (Port 3000)
+- **Backend**: Express.js (Port 7101)
+- **Database**: PostgreSQL with pgvector extension (Port 5432)
+- **AI**: Ollama with Llama 3 and mxbai-embed-large (Port 11434)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Quick Start
+
+1. Copy environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Start infrastructure:
+   ```bash
+   npm run docker:up
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Run migrations:
+   ```bash
+   npm run db:migrate
+   ```
+
+5. Seed database:
+   ```bash
+   npm run db:seed
+   ```
+
+6. Start development servers:
+   ```bash
+   npm run dev
+   ```
+
+## Project Structure
+
+```
+study-buddy/
+├── apps/
+│   ├── frontend/          # Next.js application
+│   └── backend/           # Express.js API
+├── packages/              # Shared utilities and types
+├── infra/                 # Docker Compose and infrastructure
+└── scripts/               # Database migrations and utilities
+```
+
+## Features
+
+- **Chat Interface**: Ask questions about uploaded materials
+- **Library**: Upload and manage lecture slides and notes
+- **Quiz System**: Diagnostic and practice tests
+- **Mastery Map**: Visual representation of strengths and weaknesses
+- **Study Planner**: Schedule daily revision tasks
